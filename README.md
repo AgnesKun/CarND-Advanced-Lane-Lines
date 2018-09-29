@@ -111,8 +111,8 @@ I implemented in `warp_back()`, which appears in 8th code cell of the IPython no
 ### Pipeline (video)
 
 #### 1.Final video output.
-I changed a little bit for video, because we can use prior position to find lanes.  The code is in IPython notebook ("./AdvancedLaneFindingVideo.ipynb").
-Here's a [link to my video result](./project_video_out.mp4)
+I changed a little bit for video, because we can use prior position to find lanes.  Also I keep an average of curvature and position and use them for display.  Then, if curvature is not similar to before, left and right lane are not parallel, or the distance of left and right lane is more than 4m, I discard those values. The code is in IPython notebook ("./AdvancedLaneFindingVideo.ipynb").
+Here's a [link to my video result](./project_video_out.mp4
 
 ---
 
@@ -121,3 +121,6 @@ Here's a [link to my video result](./project_video_out.mp4)
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 I tested challenge_video.mp4 and harder_challenge_video.mp4, but they are litterally hard to identify lanes.  And it is hard to find where the problem is , because they are streaming. 
+
+The below is from reviewer.
+ I observed that sometimes the S channel in HLS is less robust in shadows. If you'd like, try out some more colorspaces to experiment with like channels from LAB or LUV. You might be able to get some really good results without utilizing sobel at all, in fact.
